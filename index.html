@@ -8,47 +8,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    body { 
-      font-family: 'Inter', system-ui, sans-serif; 
-      background-color: #E8F0E0; 
-      color: #3D4A2F; 
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #E8F0E0;
+      color: #3D4A2F;
     }
-    .heading-font { font-family: 'Playfair Display', serif; }
-    
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+
     .parallax {
       background-attachment: fixed;
       background-position: center;
       background-size: cover;
     }
-    
+
     @media (max-width: 768px) {
-      .parallax { background-attachment: scroll; }
+      .parallax {
+        background-attachment: scroll;
+      }
     }
-    
-    .nav-link:hover { color: #556B2F; border-bottom: 2px solid #556B2F; }
-    
+
+    .nav-link:hover {
+      color: #556B2F;
+      border-bottom: 2px solid #556B2F;
+    }
+
     .sage-dark { color: #556B2F; }
     .sage-mid { color: #6B7F4A; }
     .blush { color: #E8B8B5; }
     .blush-bg { background-color: #F4E8E7; }
-    
+
     .section-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, #6B7F4A, transparent);
     }
 
-    .floral-overlay { position: relative; }
+    /* Floral overlay – only used where you want it (currently disabled) */
+    .floral-overlay {
+      position: relative;
+    }
     .floral-overlay::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('https://thumbs.dreamstime.com/b/delicate-light-beige-floral-design-soft-sage-green-background-features-designs-corners-motifs-include-slender-branches-372706623.jpg') center/cover no-repeat;
+      /* background: url('YOUR_OWN_FLORAL_IMAGE_URL_HERE') center/cover no-repeat; */
       opacity: 0.07;
       pointer-events: none;
       mix-blend-mode: multiply;
     }
 
-    /* Carousel – 2 images on desktop, 1 on mobile – no shadows */
     .carousel-container {
       position: relative;
       width: 100%;
@@ -65,6 +74,7 @@
       justify-content: center;
       align-items: center;
       padding: 1rem;
+      box-sizing: border-box;
     }
     .carousel-img {
       width: 100%;
@@ -88,7 +98,6 @@
       }
     }
 
-    /* Extra mobile spacing for venues */
     @media (max-width: 1023px) {
       .venue-card {
         margin-bottom: 4rem;
@@ -98,7 +107,6 @@
 </head>
 <body class="leading-relaxed">
 
-  <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-[#E8F0E0]/95 backdrop-blur-md border-b border-[#6B7F4A]/20">
     <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="text-xl heading-font tracking-widest sage-dark">J & J</div>
@@ -112,8 +120,7 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section id="hero" class="h-screen parallax flex items-center justify-center relative" 
+  <section id="hero" class="h-screen parallax flex items-center justify-center relative"
            style="background-image: url('https://images2.imgbox.com/1c/22/pzcV4tpY_o.jpg');">
     <div class="absolute inset-0 bg-black/35"></div>
     <div class="relative text-center text-white px-6 max-w-4xl mx-auto">
@@ -129,8 +136,7 @@
     </div>
   </section>
 
-  <!-- Story – automatic infinite carousel -->
-  <section id="story" class="py-28 px-6 max-w-6xl mx-auto floral-overlay">
+  <section id="story" class="py-28 px-6 max-w-6xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="heading-font text-5xl sage-dark mb-4">Our Story</h2>
       <div class="section-divider w-24 mx-auto"></div>
@@ -166,7 +172,6 @@
     </div>
   </section>
 
-  <!-- The Day -->
   <section id="day" class="parallax py-32 px-6 text-white relative floral-overlay"
            style="background-image: url('https://images2.imgbox.com/7c/ab/9E5CicJT_o.jpg');">
     <div class="absolute inset-0 bg-black/45"></div>
@@ -227,8 +232,7 @@
     </div>
   </section>
 
-  <!-- Venues -->
-  <section id="venues" class="py-28 px-6 bg-[#E8F0E0] floral-overlay">
+  <section id="venues" class="py-28 px-6 bg-[#E8F0E0]">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="heading-font text-5xl sage-dark mb-4">The Venues</h2>
@@ -261,8 +265,7 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp" class="py-28 px-6 blush-bg floral-overlay">
+  <section id="rsvp" class="py-28 px-6 blush-bg">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="heading-font text-5xl sage-dark mb-8">Will you join us?</h2>
 
@@ -275,14 +278,14 @@
 
       <div id="form-container" class="hidden">
         <div id="form1" class="hidden bg-white/80 rounded-xl shadow-lg overflow-hidden mx-auto backdrop-blur-sm">
-          <iframe src="https://docs.google.com/forms/d/e/YOUR_FIRST_FORM_ID/viewform?embedded=true" 
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdrGykcDtgJKEHXFcaixsCubMszbtH1CF0T8GfT9Yq9hom8FA/viewform?embedded=true" 
                   width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
             Loading…
           </iframe>
         </div>
         <div id="form2" class="hidden bg-white/80 rounded-xl shadow-lg overflow-hidden mx-auto backdrop-blur-sm">
-          <iframe src="https://docs.google.com/forms/d/e/YOUR_SECOND_FORM_ID/viewform?embedded=true" 
-                  width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmyheiic8Qo14UFzBQQDoi0kV7JB1PLb17obBW8e0_zsEikw/viewform?embedded=true" 
+                  width="100%" height="540" frameborder="0" marginheight="0" marginwidth="0">
             Loading…
           </iframe>
         </div>
@@ -291,13 +294,11 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-[#4A5C38] text-[#E8F0E0] py-16 text-center text-sm">
     <p>Jacob Sanders & Jasmine Blanshard-Whitton</p>
     <p class="mt-2">25th July 2026 • Oxfordshire</p>
   </footer>
 
-  <!-- Fully automatic, seamless infinite carousel script -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack');
@@ -306,52 +307,52 @@
     const originalSlides = Array.from(track.children);
     const totalOriginal = originalSlides.length;
 
-    // Clone last 2 slides to the beginning
     originalSlides.slice(-2).reverse().forEach(slide => {
       track.insertBefore(slide.cloneNode(true), track.firstChild);
     });
 
-    // Clone first 2 slides to the end
     originalSlides.slice(0, 2).forEach(slide => {
       track.appendChild(slide.cloneNode(true));
     });
 
-    let currentIndex = 2; // Start after the cloned slides at the beginning
+    let currentIndex = 2;
     const totalSlides = track.children.length;
 
+    function getSlidePercent() {
+      const containerWidth = track.parentElement.getBoundingClientRect().width;
+      const slideWidth = track.children[0].getBoundingClientRect().width;
+      return (slideWidth / containerWidth) * 100;
+    }
+
     function goToSlide(index, instant = false) {
+      const percent = getSlidePercent();
       track.style.transition = instant ? 'none' : 'transform 1.2s ease-in-out';
-      track.style.transform = `translateX(-${(index * 50)}%)`; // 50% because 2 slides visible
+      track.style.transform = `translateX(-${index * percent}%)`;
     }
 
     function nextSlide() {
       currentIndex++;
       goToSlide(currentIndex);
 
-      // Seamless reset when reaching the cloned end
       if (currentIndex >= totalOriginal + 2) {
         setTimeout(() => {
-          goToSlide(2, true); // instant reset to original start + clones
+          goToSlide(2, true);
           currentIndex = 2;
-        }, 1200); // match transition duration
+        }, 1200);
       }
     }
 
-    // Auto-scroll every 5 seconds
     setInterval(nextSlide, 5000);
 
-    // Handle resize
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => goToSlide(currentIndex, true), 150);
     });
 
-    // Initial position (instant)
     goToSlide(currentIndex, true);
   });
 
-  // Password protected forms (unchanged)
   document.addEventListener('DOMContentLoaded', () => {
     const promptDiv = document.getElementById('password-prompt');
     const formContainer = document.getElementById('form-container');
@@ -359,13 +360,11 @@
     const submitBtn = document.getElementById('submit-password');
     const errorMsg = document.getElementById('error-message');
 
-    // CHANGE THESE VALUES
-    const password1 = "bride";     // Password for Form 1
-    const password2 = "groom";     // Password for Form 2
+    const password1 = "JasmineSmells";
+    const password2 = "JacobSmells";
 
     submitBtn.addEventListener('click', () => {
       const entered = input.value.trim().toLowerCase();
-
       if (entered === password1.toLowerCase()) {
         document.getElementById('form1').classList.remove('hidden');
         formContainer.classList.remove('hidden');
@@ -386,6 +385,5 @@
     });
   });
   </script>
-
 </body>
 </html>

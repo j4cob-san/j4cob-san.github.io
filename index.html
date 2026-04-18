@@ -8,62 +8,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background-color: #E8F0E0;
-      color: #3D4A2F;
+    body { 
+      font-family: 'Inter', system-ui, sans-serif; 
+      background-color: #E8F0E0; 
+      color: #3D4A2F; 
     }
-    .heading-font {
-      font-family: 'Playfair Display', serif;
-    }
-
+    .heading-font { font-family: 'Playfair Display', serif; }
+    
     .parallax {
       background-attachment: fixed;
       background-position: center;
       background-size: cover;
     }
-
+    
     @media (max-width: 768px) {
-      .parallax {
-        background-attachment: scroll;
-      }
+      .parallax { background-attachment: scroll; }
     }
-
-    .nav-link:hover {
-      color: #556B2F;
-      border-bottom: 2px solid #556B2F;
-    }
-
+    
+    .nav-link:hover { color: #556B2F; border-bottom: 2px solid #556B2F; }
+    
     .sage-dark { color: #556B2F; }
-    .sage-mid { color: #6B7F4A; }
-    .blush { color: #E8B8B5; }
+    .blush { color: #D8A8A5; }
     .blush-bg { background-color: #F4E8E7; }
-
+    
     .section-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, #6B7F4A, transparent);
     }
 
-    /* Floral overlay – only used where you want it (currently disabled) */
-    .floral-overlay {
-      position: relative;
+    /* Consistent floral overlay for all sections */
+    .floral-overlay { 
+      position: relative; 
+      background-color: #E8F0E0; /* Solid base to prevent seams */
     }
     .floral-overlay::before {
       content: '';
       position: absolute;
       inset: 0;
-      /* background: url('YOUR_OWN_FLORAL_IMAGE_URL_HERE') center/cover no-repeat; */
+      background: url('https://thumbs.dreamstime.com/b/delicate-light-beige-floral-design-soft-sage-green-background-features-designs-corners-motifs-include-slender-branches-372706623.jpg') center/cover no-repeat;
       opacity: 0.07;
       pointer-events: none;
       mix-blend-mode: multiply;
+      z-index: 0;
     }
 
+    /* Carousel */
     .carousel-container {
       position: relative;
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
       overflow: hidden;
+      z-index: 1;
     }
     .carousel-track {
       display: flex;
@@ -89,24 +85,18 @@
     }
 
     @media (max-width: 767px) {
-      .carousel-slide {
-        flex: 0 0 100%;
-      }
-      .carousel-img {
-        max-width: 360px;
-        height: 360px;
-      }
+      .carousel-slide { flex: 0 0 100%; }
+      .carousel-img { max-width: 360px; height: 360px; }
     }
 
     @media (max-width: 1023px) {
-      .venue-card {
-        margin-bottom: 4rem;
-      }
+      .venue-card { margin-bottom: 4rem; }
     }
   </style>
 </head>
 <body class="leading-relaxed">
 
+  <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-[#E8F0E0]/95 backdrop-blur-md border-b border-[#6B7F4A]/20">
     <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
       <div class="text-xl heading-font tracking-widest sage-dark">J & J</div>
@@ -120,10 +110,11 @@
     </div>
   </nav>
 
+  <!-- Hero -->
   <section id="hero" class="h-screen parallax flex items-center justify-center relative"
            style="background-image: url('https://images2.imgbox.com/1c/22/pzcV4tpY_o.jpg');">
     <div class="absolute inset-0 bg-black/35"></div>
-    <div class="relative text-center text-white px-6 max-w-4xl mx-auto">
+    <div class="relative text-center text-white px-6 max-w-4xl mx-auto z-10">
       <h1 class="heading-font text-7xl md:text-8xl tracking-wider mb-4">Jacob & Jasmine</h1>
       <p class="text-2xl md:text-3xl mb-12 tracking-widest blush">25 July 2026</p>
       <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -136,46 +127,60 @@
     </div>
   </section>
 
-  <section id="story" class="py-28 px-6 max-w-6xl mx-auto">
-    <div class="text-center mb-16">
+  <!-- Our Story - Floral overlay applied consistently -->
+  <section id="story" class="py-28 px-6 floral-overlay">
+    <div class="text-center mb-16 relative z-10">
       <h2 class="heading-font text-5xl sage-dark mb-4">Our Story</h2>
       <div class="section-divider w-24 mx-auto"></div>
     </div>
 
-    <div class="carousel-container">
+    <div class="carousel-container relative z-10">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/91/eb/I7Q4nNNO_o.jpg" alt="Jacob & Jasmine 1" class="carousel-img">
+          <img src="https://images2.imgbox.com/d8/76/hauHZF4S_o.jpg" alt="Jacob and Jasmine enjoying time together" class="carousel-img" loading="lazy">
         </div>
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/74/04/FBY2sHYF_o.jpg" alt="Jacob & Jasmine 2" class="carousel-img">
+          <img src="https://images2.imgbox.com/e7/bc/iFm58ckH_o.jpg" alt="Jacob and Jasmine on an adventure" class="carousel-img" loading="lazy">
         </div>
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/cb/bb/pzCRfLnn_o.jpg" alt="Jacob & Jasmine 3" class="carousel-img">
+          <img src="https://images2.imgbox.com/40/c4/gOma7QLm_o.jpg" alt="Jacob and Jasmine at a festival" class="carousel-img" loading="lazy">
         </div>
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/ca/37/YTiNIpw6_o.jpg" alt="Jacob & Jasmine 4" class="carousel-img">
+          <img src="https://images2.imgbox.com/99/0c/3HN1cYkQ_o.jpg" alt="Jacob and Jasmine rock climbing" class="carousel-img" loading="lazy">
         </div>
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/2f/da/UZaN8KPr_o.jpeg" alt="Jacob & Jasmine 5" class="carousel-img">
+          <img src="https://images2.imgbox.com/bf/a3/h3knZkB8_o.jpg" alt="Jacob proposing to Jasmine in Golden Gate Park" class="carousel-img" loading="lazy">
         </div>
         <div class="carousel-slide">
-          <img src="https://images2.imgbox.com/ed/c4/ojeQ9htJ_o.jpg" alt="Jacob & Jasmine 6" class="carousel-img">
+          <img src="https://images2.imgbox.com/8e/76/anSTbxNE_o.jpg" alt="Jacob and Jasmine travelling" class="carousel-img" loading="lazy">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://images2.imgbox.com/f3/83/jVQDw0wV_o.jpg" alt="Happy couple portrait" class="carousel-img" loading="lazy">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://images2.imgbox.com/2f/da/UZaN8KPr_o.jpeg" alt="Jacob and Jasmine smiling together" class="carousel-img" loading="lazy">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://images2.imgbox.com/ed/c4/ojeQ9htJ_o.jpg" alt="Couple enjoying nature" class="carousel-img" loading="lazy">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://images2.imgbox.com/33/8f/Dm425yww_o.jpg" alt="Jacob and Jasmine laughing during their engagement" class="carousel-img" loading="lazy">
         </div>
       </div>
     </div>
 
-    <div class="prose prose-lg text-[#3D4A2F] max-w-3xl mx-auto text-center mt-12">
+    <div class="prose prose-lg text-[#3D4A2F] max-w-3xl mx-auto text-center mt-12 relative z-10">
       <p>Jasmine and Jacob first met in 2012 during a cinema trip organised by a mutual friend, and there was an instant connection. Since then, they’ve spent the last 14 years adventuring through life together, sharing a love for rock climbing, travelling, and dancing together at festivals.</p>
       <br><p>During an unforgettable trip around America, Jacob proposed to Jasmine in San Francisco’s beautiful Golden Gate Park, beside the vibrant dahlias. It was the perfect moment in a journey they’ve been building together ever since.</p>
       <br><p>Now they can’t wait to celebrate the next chapter of their adventure with the people they love most.</p>
     </div>
   </section>
 
+  <!-- The Day -->
   <section id="day" class="parallax py-32 px-6 text-white relative floral-overlay"
            style="background-image: url('https://images2.imgbox.com/7c/ab/9E5CicJT_o.jpg');">
     <div class="absolute inset-0 bg-black/45"></div>
-    <div class="relative max-w-5xl mx-auto">
+    <div class="relative max-w-5xl mx-auto z-10">
       <div class="text-center mb-16">
         <h2 class="heading-font text-6xl md:text-7xl tracking-wide">25 July 2026</h2>
         <p class="text-xl md:text-2xl mt-4 blush">Friars Court & Riverview Barn, Oxfordshire</p>
@@ -183,57 +188,40 @@
 
       <div class="grid md:grid-cols-2 gap-12 md:gap-16 max-w-4xl mx-auto">
         <div class="text-center md:text-left">
-          <h3 class="heading-font text-5xl md:text-6xl mb-8 blush">
-            Ceremony
-          </h3>
+          <h3 class="heading-font text-5xl md:text-6xl mb-8 blush">Ceremony</h3>
           <div class="space-y-10 text-lg">
-            <div>
-              <p class="font-semibold text-xl">12:30pm</p>
-              <p class="text-white/90">Guests arrive at Friars Court, Clanfield</p>
-              <p class="text-sm blush mt-1">Please arrive by 12:30pm</p>
-            </div>
-            <div>
-              <p class="font-semibold text-xl">1:00pm</p>
-              <p class="text-white/90">Ceremony begins</p>
-            </div>
-            <div>
-              <p class="font-semibold text-xl">1:30pm</p>
-              <p class="text-white/90">Lawn drinks & light bites</p>
-            </div>
-            <div>
-              <p class="font-semibold text-xl">3:00pm</p>
-              <p class="text-white/90">Guests make their way to Riverview Barn</p>
-              <p class="text-sm blush mt-1">(approx. 3-minute drive)</p>
-            </div>
+            <div><p class="font-semibold text-xl">12:30pm</p><p class="text-white/90">Guests arrive at Friars Court, Clanfield</p><p class="text-sm blush mt-1">Please arrive by 12:30pm</p></div>
+            <div><p class="font-semibold text-xl">1:00pm</p><p class="text-white/90">Ceremony begins</p></div>
+            <div><p class="font-semibold text-xl">1:30pm</p><p class="text-white/90">Lawn drinks & light bites</p></div>
+            <div><p class="font-semibold text-xl">3:00pm</p><p class="text-white/90">Guests make their way to Riverview Barn</p><p class="text-sm blush mt-1">(approx. 3-minute drive)</p></div>
           </div>
         </div>
 
         <div class="text-center md:text-left">
-          <h3 class="heading-font text-5xl md:text-6xl mb-8 blush">
-            Reception
-          </h3>
+          <h3 class="heading-font text-5xl md:text-6xl mb-8 blush">Reception</h3>
           <div class="space-y-10 text-lg">
-            <div>
-              <p class="font-semibold text-xl">4:00</p>
-              <p class="text-white/90">Hog roast & speeches</p>
-            </div>
-            <div>
-              <p class="font-semibold text-xl">6:30pm Onwards</p>
-              <p class="text-white/90">Evening guests arrive</p>
-              <p class="text-sm blush mt-1">Music, dancing & celebrations continue</p>
-            </div>
-            <div>
-              <p class="font-semibold text-xl">8:30pm</p>
-              <p class="text-white/90">Evening snacks and DJ's begin</p>
-            </div>
+            <div><p class="font-semibold text-xl">4:00pm</p><p class="text-white/90">Hog roast & speeches</p></div>
+            <div><p class="font-semibold text-xl">6:30pm onwards</p><p class="text-white/90">Evening guests arrive</p><p class="text-sm blush mt-1">Music, dancing & celebrations continue</p></div>
+            <div><p class="font-semibold text-xl">8:30pm</p><p class="text-white/90">Evening snacks and DJ's begin</p></div>
           </div>
         </div>
+      </div>
+
+      <!-- Dress Code -->
+      <div class="mt-16 max-w-4xl mx-auto text-center">
+        <p class="heading-font text-5xl md:text-6xl mb-6 blush">Dress Code</p>
+        <p class="text-xl text-white/90 mb-3">Garden Party Attire</p>
+        <p class="text-white/80 max-w-md mx-auto leading-relaxed">
+          Light, elegant outfits perfect for a summer celebration in the gardens and barn. 
+          Floral dresses, linen suits, soft pastels, and comfortable shoes are ideal.
+        </p>
       </div>
     </div>
   </section>
 
-  <section id="venues" class="py-28 px-6 bg-[#E8F0E0]">
-    <div class="max-w-6xl mx-auto">
+  <!-- Venues - Floral overlay -->
+  <section id="venues" class="py-28 px-6 floral-overlay">
+    <div class="max-w-6xl mx-auto relative z-10">
       <div class="text-center mb-16">
         <h2 class="heading-font text-5xl sage-dark mb-4">The Venues</h2>
         <div class="section-divider w-24 mx-auto"></div>
@@ -241,32 +229,31 @@
 
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
         <div class="venue-card space-y-6">
-          <img src="https://images2.imgbox.com/7b/59/uGJOH5aL_o.jpg" alt="Friars Court" class="w-full h-80 md:h-96 object-cover rounded-2xl shadow-xl mx-auto">
+          <img src="https://images2.imgbox.com/7b/59/uGJOH5aL_o.jpg" alt="Friars Court manor house" class="w-full h-80 md:h-96 object-cover rounded-2xl shadow-xl mx-auto" loading="lazy">
           <h3 class="heading-font text-3xl mb-2 sage-dark text-center">Ceremony • Friars Court</h3>
           <p class="text-[#4A5C38] text-center">Clanfield, Oxfordshire OX18 2SU</p>
           <p class="mt-4 text-[#4A5C38] text-center">A stunning 17th-century Cotswold stone manor house with beautiful moated gardens — the perfect intimate setting for your ceremony.</p>
           <div class="mt-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4117.540050578817!2d-1.5885740000000002!3d51.7064048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487135a8d9152083%3A0x41265f9cc87e07ac!2sFriars%20Court!5e1!3m2!1sen!2suk!4v1770482495461!5m2!1sen!2suk"
-                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4117.540050578817!2d-1.5885740000000002!3d51.7064048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487135a8d9152083%3A0x41265f9cc87e07ac!2sFriars%20Court!5e1!3m2!1sen!2suk!4v1770482495461!5m2!1sen!2suk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
         <div class="venue-card space-y-6">
-          <img src="https://images2.imgbox.com/34/96/yxCcb5DU_o.jpg" alt="Riverview Barn" class="w-full h-80 md:h-96 object-cover rounded-2xl shadow-xl mx-auto">
+          <img src="https://images2.imgbox.com/34/96/yxCcb5DU_o.jpg" alt="Riverview Barn" class="w-full h-80 md:h-96 object-cover rounded-2xl shadow-xl mx-auto" loading="lazy">
           <h3 class="heading-font text-3xl mb-2 sage-dark text-center">Reception • Riverview Barn</h3>
           <p class="text-[#4A5C38] text-center">Radcot Road, Radcot OX18 2SX (attached to Ye Olde Swan)</p>
           <p class="mt-4 text-[#4A5C38] text-center">A beautiful barn overlooking the River Thames — just 3 minutes from the ceremony venue. Perfect for speeches, a hog roast, and evening celebrations.</p>
           <div class="mt-6">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1059.1448310176395!2d-1.5879940220263178!3d51.693846922398116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487135d778582321%3A0x900efb3e4b90202c!2sRiverview%20Barn!5e1!3m2!1sen!2suk!4v1770482567572!5m2!1sen!2suk"
-                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1059.1448310176395!2d-1.5879940220263178!3d51.693846922398116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487135d778582321%3A0x900efb3e4b90202c!2sRiverview%20Barn!5e1!3m2!1sen!2suk!4v1770482567572!5m2!1sen!2suk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="rsvp" class="py-28 px-6 blush-bg">
-    <div class="max-w-4xl mx-auto text-center">
+  <!-- RSVP - Floral overlay -->
+  <section id="rsvp" class="py-28 px-6 blush-bg floral-overlay">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="heading-font text-5xl sage-dark mb-8">Will you join us?</h2>
 
       <div id="password-prompt" class="space-y-6">
@@ -278,27 +265,23 @@
 
       <div id="form-container" class="hidden">
         <div id="form1" class="hidden bg-white/80 rounded-xl shadow-lg overflow-hidden mx-auto backdrop-blur-sm">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdrGykcDtgJKEHXFcaixsCubMszbtH1CF0T8GfT9Yq9hom8FA/viewform?embedded=true" 
-                  width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">
-            Loading…
-          </iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdrGykcDtgJKEHXFcaixsCubMszbtH1CF0T8GfT9Yq9hom8FA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
         <div id="form2" class="hidden bg-white/80 rounded-xl shadow-lg overflow-hidden mx-auto backdrop-blur-sm">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmyheiic8Qo14UFzBQQDoi0kV7JB1PLb17obBW8e0_zsEikw/viewform?embedded=true" 
-                  width="100%" height="540" frameborder="0" marginheight="0" marginwidth="0">
-            Loading…
-          </iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmyheiic8Qo14UFzBQQDoi0kV7JB1PLb17obBW8e0_zsEikw/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
         <p class="text-sm text-[#4A5C38] mt-10">Thank you for RSVPing. We look forward to celebrating with you.</p>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="bg-[#4A5C38] text-[#E8F0E0] py-16 text-center text-sm">
     <p>Jacob Sanders & Jasmine Blanshard-Whitton</p>
     <p class="mt-2">25th July 2026 • Oxfordshire</p>
   </footer>
 
+  <!-- Carousel Script -->
   <script>
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack');
@@ -353,6 +336,7 @@
     goToSlide(currentIndex, true);
   });
 
+  // Password script
   document.addEventListener('DOMContentLoaded', () => {
     const promptDiv = document.getElementById('password-prompt');
     const formContainer = document.getElementById('form-container');

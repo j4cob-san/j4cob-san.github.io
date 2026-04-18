@@ -21,6 +21,13 @@
       background-size: cover;
     }
     
+    /* Disable fixed parallax on tablets to prevent stretching */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .parallax {
+        background-attachment: scroll;
+      }
+    }
+    
     @media (max-width: 768px) {
       .parallax { background-attachment: scroll; }
     }
@@ -29,14 +36,14 @@
     
     .sage-dark { color: #556B2F; }
     .blush { color: #D8A8A5; }
-    .blush-bg { background-color: #F4E8E7; }   /* Original pink kept here */
+    .blush-bg { background-color: #F4E8E7; }
     
     .section-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, #6B7F4A, transparent);
     }
 
-    /* Floral overlay - applied consistently but respects section background */
+    /* Consistent floral overlay */
     .floral-overlay { 
       position: relative; 
     }
@@ -51,7 +58,7 @@
       z-index: 0;
     }
 
-    /* Carousel */
+    /* Carousel - Fixed circular shape on all devices including tablets */
     .carousel-container {
       position: relative;
       width: 100%;
@@ -75,6 +82,7 @@
       width: 100%;
       max-width: 420px;
       height: 420px;
+      aspect-square: 1 / 1;           /* Force square */
       object-fit: cover;
       border-radius: 9999px;
       transition: transform 0.5s ease;
@@ -85,7 +93,10 @@
 
     @media (max-width: 767px) {
       .carousel-slide { flex: 0 0 100%; }
-      .carousel-img { max-width: 360px; height: 360px; }
+      .carousel-img { 
+        max-width: 360px; 
+        height: 360px; 
+      }
     }
 
     @media (max-width: 1023px) {
@@ -135,6 +146,7 @@
 
     <div class="carousel-container relative z-10">
       <div class="carousel-track" id="carouselTrack">
+        <!-- Your images here (same as before) -->
         <div class="carousel-slide">
           <img src="https://images2.imgbox.com/d8/76/hauHZF4S_o.jpg" alt="Jacob and Jasmine enjoying time together" class="carousel-img" loading="lazy">
         </div>
@@ -250,7 +262,7 @@
     </div>
   </section>
 
-  <!-- RSVP - Pink background restored + floral overlay -->
+  <!-- RSVP -->
   <section id="rsvp" class="py-28 px-6 blush-bg floral-overlay">
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="heading-font text-5xl sage-dark mb-8">Will you join us?</h2>
@@ -280,9 +292,8 @@
     <p class="mt-2">25th July 2026 • Oxfordshire</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Carousel Script -->
   <script>
-  // Carousel Script
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack');
     if (!track) return;

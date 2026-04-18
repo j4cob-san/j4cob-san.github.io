@@ -29,17 +29,16 @@
     
     .sage-dark { color: #556B2F; }
     .blush { color: #D8A8A5; }
-    .blush-bg { background-color: #F4E8E7; }
+    .blush-bg { background-color: #F4E8E7; }   /* Original pink kept here */
     
     .section-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, #6B7F4A, transparent);
     }
 
-    /* Consistent floral overlay for all sections */
+    /* Floral overlay - applied consistently but respects section background */
     .floral-overlay { 
       position: relative; 
-      background-color: #E8F0E0; /* Solid base to prevent seams */
     }
     .floral-overlay::before {
       content: '';
@@ -127,7 +126,7 @@
     </div>
   </section>
 
-  <!-- Our Story - Floral overlay applied consistently -->
+  <!-- Our Story -->
   <section id="story" class="py-28 px-6 floral-overlay">
     <div class="text-center mb-16 relative z-10">
       <h2 class="heading-font text-5xl sage-dark mb-4">Our Story</h2>
@@ -219,7 +218,7 @@
     </div>
   </section>
 
-  <!-- Venues - Floral overlay -->
+  <!-- Venues -->
   <section id="venues" class="py-28 px-6 floral-overlay">
     <div class="max-w-6xl mx-auto relative z-10">
       <div class="text-center mb-16">
@@ -251,7 +250,7 @@
     </div>
   </section>
 
-  <!-- RSVP - Floral overlay -->
+  <!-- RSVP - Pink background restored + floral overlay -->
   <section id="rsvp" class="py-28 px-6 blush-bg floral-overlay">
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="heading-font text-5xl sage-dark mb-8">Will you join us?</h2>
@@ -281,8 +280,9 @@
     <p class="mt-2">25th July 2026 • Oxfordshire</p>
   </footer>
 
-  <!-- Carousel Script -->
+  <!-- Scripts -->
   <script>
+  // Carousel Script
   document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('carouselTrack');
     if (!track) return;
@@ -299,7 +299,6 @@
     });
 
     let currentIndex = 2;
-    const totalSlides = track.children.length;
 
     function getSlidePercent() {
       const containerWidth = track.parentElement.getBoundingClientRect().width;
@@ -336,7 +335,7 @@
     goToSlide(currentIndex, true);
   });
 
-  // Password script
+  // Password Script
   document.addEventListener('DOMContentLoaded', () => {
     const promptDiv = document.getElementById('password-prompt');
     const formContainer = document.getElementById('form-container');
